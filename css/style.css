@@ -472,7 +472,7 @@ body .fadein {
   }
 }
 
-#header .header-container .header-fixed .hide-title {
+#header .header-container .header-fixed .hide {
   display: none;
 }
 
@@ -492,7 +492,7 @@ body .fadein {
   #header .header-container .header-fixed h1 .br2 {
     display: block;
   }
-  #header .header-container .header-fixed .hide-title {
+  #header .header-container .header-fixed .top-title {
     display: block;
     position: fixed;
     top: 0;
@@ -543,24 +543,19 @@ body .fadein {
 
 #header .main-visual {
   margin-top: 80px;
-}
-
-@media screen and (max-width: 500px) {
-  #header .main-visual {
-    margin-top: 0;
-  }
+  position: relative;
 }
 
 #header .main-visual .main-visual-image {
   width: 70%;
-  margin: 0 10px 0 auto;
+  margin: 80px 10px 0 auto;
   box-shadow: 0 2px 5px 2px rgba(37, 37, 37, 0.6);
 }
 
 @media screen and (max-width: 500px) {
   #header .main-visual .main-visual-image {
     width: 100%;
-    height: 400px;
+    height: calc(100vh - 80px);
     position: relative;
   }
   #header .main-visual .main-visual-image:before {
@@ -574,6 +569,41 @@ body .fadein {
   }
   #header .main-visual .main-visual-image img {
     height: 100%;
+  }
+}
+
+#header .main-visual .btn-container {
+  display: none;
+}
+
+@media screen and (max-width: 500px) {
+  #header .main-visual .btn-container {
+    display: block;
+    position: absolute;
+    top: 45%;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 200px;
+  }
+  #header .main-visual .btn-container .btn {
+    text-align: center;
+    border: 2px solid #ddd;
+    margin-top: 10px;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  #header .main-visual .btn-container .btn a {
+    display: inline-block;
+    width: 100%;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #ddd;
+    line-height: 40px;
+    transition: 0.25s;
+  }
+  #header .main-visual .btn-container .btn a:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    color: #252525;
   }
 }
 
