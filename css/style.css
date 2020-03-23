@@ -200,7 +200,16 @@ body a {
 
 body .fadein {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(10px);
+  transition: all 1s;
+}
+
+body .hide {
+  display: none;
+}
+
+body .slidin {
+  display: none;
   transition: all 1s;
 }
 
@@ -427,6 +436,10 @@ body .fadein {
 /*==================================
 ===============body=================
 ==================================*/
+#header {
+  position: relative;
+}
+
 #header .header-container .header-fixed {
   position: fixed;
   top: 0;
@@ -472,10 +485,6 @@ body .fadein {
   }
 }
 
-#header .header-container .header-fixed .hide {
-  display: none;
-}
-
 @media screen and (max-width: 500px) {
   #header .header-container .header-fixed {
     position: absolute;
@@ -508,8 +517,16 @@ body .fadein {
 }
 
 #header .pc-navi {
-  float: left;
+  position: absolute;
+  top: -60px;
   padding: 0 0 0 20px;
+  z-index: 5;
+}
+
+@media screen and (max-width: 840px) {
+  #header .pc-navi {
+    top: 0;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -523,6 +540,7 @@ body .fadein {
   border-bottom: 2px solid whitesmoke;
   box-sizing: border-box;
   transition: 0.25s;
+  cursor: pointer;
 }
 
 #header .pc-navi .pc-navi-list:hover {
@@ -583,7 +601,7 @@ body .fadein {
     top: 45%;
     right: 0;
     left: 0;
-    margin: 0 auto;
+    margin: 20px auto;
     width: 200px;
   }
   #header .main-visual .btn-container .btn {
@@ -591,6 +609,7 @@ body .fadein {
     border: 2px solid #ddd;
     margin-top: 10px;
     background-color: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
   }
   #header .main-visual .btn-container .btn a {
     display: inline-block;
@@ -603,6 +622,7 @@ body .fadein {
   }
   #header .main-visual .btn-container .btn a:hover {
     background-color: rgba(255, 255, 255, 0.4);
+    font-size: 1.6rem;
     color: #252525;
   }
 }
@@ -639,7 +659,7 @@ body .fadein {
   background: #dfffe4;
   box-shadow: 0 2px 5px 2px rgba(37, 37, 37, 0.6);
   position: absolute;
-  top: 350px;
+  top: 220px;
   left: 10px;
 }
 
@@ -655,7 +675,13 @@ body .fadein {
 }
 
 #header .profile .profile-container .profile-box .profile-image {
+  height: 300px;
   padding: 10px;
+}
+
+#header .profile .profile-container .profile-box .profile-image img {
+  width: 280px;
+  height: 100%;
   border-radius: 50%;
 }
 
@@ -669,8 +695,7 @@ body .fadein {
     flex-direction: column;
   }
   #header .profile .profile-container .profile-box .profile-image {
-    width: 40%;
-    height: 40%;
+    padding: 20px 0;
     margin: auto;
   }
   #header .profile .profile-container .profile-box .profile-image img {
@@ -707,6 +732,12 @@ body .fadein {
 #news .news-container {
   width: 90%;
   margin: auto;
+}
+
+@media screen and (max-width: 500px) {
+  #news .news-container {
+    width: 100%;
+  }
 }
 
 #news .news-container h2 {
@@ -785,25 +816,16 @@ body .fadein {
     background: url(../img/roman-kraft-HjTd4GUoyJs-unsplash.jpg) no-repeat;
     background-position: center;
     background-size: cover;
-    box-shadow: 0 2px 5px 2px rgba(37, 37, 37, 0.6);
-    position: relative;
-  }
-  #news .news-container .news-box::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.6);
   }
   #news .news-container .news-box .news-image {
     display: none;
   }
   #news .news-container .news-box .news-contents {
-    width: 100%;
-    padding: 30px 20px 40px;
+    width: 90%;
+    padding: 30px 5px 40px;
+    margin: 10px auto;
     z-index: 1;
+    background: rgba(255, 255, 255, 0.7);
   }
   #news .news-container .news-box .news-contents .news-content {
     display: flex;
@@ -871,6 +893,7 @@ body .fadein {
   margin-bottom: 100px;
   display: flex;
   justify-content: space-between;
+  overflow: hidden;
 }
 
 #maiking .making-container .making-box:nth-child(2n) {
@@ -954,10 +977,8 @@ body .fadein {
 
 #gallery .gallery-container #gallery-main-image {
   width: 50%;
-  height: 50%;
   box-sizing: border-box;
   margin: 0 0 0 10px;
-  box-shadow: 0 2px 5px 2px rgba(37, 37, 37, 0.6);
   position: relative;
 }
 
@@ -968,34 +989,48 @@ body .fadein {
   }
 }
 
+#gallery .gallery-container #gallery-main-image img {
+  box-shadow: 0 2px 5px 2px rgba(37, 37, 37, 0.6);
+}
+
 #gallery .gallery-container #gallery-main-image #left_arrow {
   width: 20px;
   height: 20px;
   position: absolute;
-  left: 2px;
+  left: -25px;
   top: 0;
   bottom: 0;
   margin: auto;
   cursor: pointer;
   user-select: none;
-  background: rgba(255, 255, 255, 0.8);
   padding: 2px 2px 2px 0;
+}
+
+#gallery .gallery-container #gallery-main-image #left_arrow img {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #ddd;
   border-radius: 50%;
+  box-shadow: 0 2px 5px 2px rgba(37, 37, 37, 0.6);
 }
 
 #gallery .gallery-container #gallery-main-image #right_arrow {
   width: 20px;
   height: 20px;
   position: absolute;
-  right: 2px;
+  right: -25px;
   top: 0;
   bottom: 0;
   margin: auto;
   cursor: pointer;
   user-select: none;
-  background: rgba(255, 255, 255, 0.8);
   padding: 2px 0 2px 2px;
+}
+
+#gallery .gallery-container #gallery-main-image #right_arrow img {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #ddd;
   border-radius: 50%;
+  box-shadow: 0 2px 5px 2px rgba(37, 37, 37, 0.6);
 }
 
 #gallery .gallery-container #gallery-main-image #play-btn {
@@ -1185,6 +1220,15 @@ body .fadein {
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
+}
+
+@media screen and (max-width: 500px) {
+  #footer .footer-container {
+    padding: 20px 5px;
+  }
+  #footer .footer-container h2 {
+    padding-left: 0;
+  }
 }
 
 #footer .footer-container h2 {
