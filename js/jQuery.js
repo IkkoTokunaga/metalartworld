@@ -142,27 +142,6 @@ leftArrow.addEventListener("click", () => {
   addClassSelect();
 });
 
-const play = document.getElementById("play-btn"); //プレイボタン
-const stop = document.getElementById("stop-btn"); //ストップボタン
-let stopTimeout;
-
-play.addEventListener("click", () => {
-  //プレイボタンで自動再生
-  // stop.classList.remove("hidden");
-  // play.classList.add("hidden");
-  stopTimeout = setTimeout(() => {
-    rightArrow.click();
-    play.click();
-  }, 2000);
-});
-
-stop.addEventListener("click", () => {
-  //ストップボタンで再生停止
-  clearTimeout(stopTimeout);
-  // play.classList.remove("hidden");
-  // stop.classList.add("hidden");
-});
-
 //ふわっと表示
 
 $(function() {
